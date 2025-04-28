@@ -17,7 +17,6 @@ exports.createPost = async (req, res) => {
 exports.getAllPosts = async (req, res) => {
     try {
         const posts = await Post.find().populate('user', 'name email'); // Only show name and email of user
-        console.log(posts);
         res.status(200).json(posts);
     } catch (error) {
         console.error('Error fetching posts:', error);
